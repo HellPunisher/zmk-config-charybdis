@@ -132,7 +132,7 @@ In dongle mode, a dedicated dongle acts as the central device with a display:
 - Split battery status for both peripherals
 - Peripheral connection status indicators
 - Caps Word indicator
-- Fixed brightness (70%) without ambient light sensor
+- Fixed brightness (50%) without ambient light sensor
 
 ## West.yml Configuration
 
@@ -170,7 +170,7 @@ projects:
     revision: main
 ```
 
-- **`zmk`**: 
+- **`zmk`**:
   - **Purpose**: Main ZMK firmware application
   - **Source**: `zmkfirmware` remote
   - **Version**: `main` branch
