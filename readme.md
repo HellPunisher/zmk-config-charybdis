@@ -460,12 +460,12 @@ Built firmware files are automatically copied to `manual_build/artifacts/output/
 
 1. **Flash settings reset and dongle firmware** (choose your dongle type):
 
-   a) **Prospector Dongle (Seeeduino XIAO BLE)**nice_dongle.overlay:
+   a) **Prospector Dongle (Seeeduino XIAO BLE)**:
       - Flash `settings_reset-nice_nano_v2-zmk.uf2` to **both** keyboards
       - Flash `settings_reset-seeeduino_xiao_ble-zmk.uf2` to the **dongle**
       - Flash `prospector_dongle prospector_adapter-seeeduino_xiao_ble-zmk.uf2` to the dongle
 
-   b) **Nice!Nano Dongle (Nice!Nano v2)** ⭐ NEW:
+   b) **Nice!Nano Dongle (Nice!Nano v2)**
       - Flash `settings_reset-nice_nano_v2-zmk.uf2` to **all three** devices (left, right, dongle)
       - Flash `nice_dongle dongle_display-nice_nano_v2-zmk.uf2` to the dongle
       - Connect OLED display to dongle via I2C (SDA→Pin 2, SCL→Pin 3)
