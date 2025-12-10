@@ -80,7 +80,7 @@ This repository includes a **ZMK Tester Shield** (`tester_pro_micro`) for troubl
 
 **How to use:**
 
-1. Flash `tester_pro_micro-nice_nano_v2-zmk.uf2` to your controller (see [Building Firmware](#building-firmware))
+1. Flash `tester_pro_micro-nice_nano-zmk.uf2` to your controller (see [Building Firmware](#building-firmware))
 2. Connect the board via USB to your computer
 3. Open a text editor
 4. Connect a switch or wire from any GPIO pin to GND and trigger it
@@ -426,7 +426,7 @@ ZMK Studio support is enabled by default via the build configuration in [`build.
 **Standalone mode** - Right keyboard has ZMK Studio:
 
 ```yaml
-- board: nice_nano_v2
+- board: nice_nano
   shield: charybdis_right_standalone
   snippet: studio-rpc-usb-uart
   cmake-args: -DCONFIG_ZMK_STUDIO=y
@@ -435,7 +435,7 @@ ZMK Studio support is enabled by default via the build configuration in [`build.
 **Dongle mode** - Prospector dongle has ZMK Studio:
 
 ```yaml
-- board: seeeduino_xiao_ble
+- board: xiao_ble
   shield: dongle_prospector prospector_adapter
   snippet: studio-rpc-usb-uart
   cmake-args: -DCONFIG_ZMK_STUDIO=y
@@ -459,15 +459,15 @@ This combo is defined in [`config/charybdis.keymap`](/config/charybdis.keymap) a
 
 Push changes to your repository and GitHub Actions will automatically build firmware for all configurations defined in [`build.yaml`](/build.yaml). Firmware files will be available in the Actions artifacts as a `firmware.zip` file containing:
 
-- `charybdis_left-nice_nano_v2-zmk.uf2`
-- `charybdis_right_standalone-nice_nano_v2-zmk.uf2`
-- `dongle_charybdis_right-nice_nano_v2-zmk.uf2`
-- `dongle_prospector prospector_adapter-seeeduino_xiao_ble-zmk.uf2`
-- `dongle_nice_32 dongle_display-nice_nano_v2-zmk.uf2`
-- `dongle_nice_64 dongle_display-nice_nano_v2-zmk.uf2`
-- `tester_pro_micro-nice_nano_v2-zmk.uf2`
-- `settings_reset-nice_nano_v2-zmk.uf2`
-- `settings_reset-seeeduino_xiao_ble-zmk.uf2`
+- `charybdis_left-nice_nano-zmk.uf2`
+- `charybdis_right_standalone-nice_nano-zmk.uf2`
+- `dongle_charybdis_right-nice_nano-zmk.uf2`
+- `dongle_prospector prospector_adapter-xiao_ble-zmk.uf2`
+- `dongle_nice_32 dongle_display-nice_nano-zmk.uf2`
+- `dongle_nice_64 dongle_display-nice_nano-zmk.uf2`
+- `tester_pro_micro-nice_nano-zmk.uf2`
+- `settings_reset-nice_nano-zmk.uf2`
+- `settings_reset-xiao_ble-zmk.uf2`
 
 ### Local Build (Manual)
 
@@ -499,9 +499,9 @@ Built firmware files are automatically copied to `manual_build/artifacts/output/
 
 **First time or changing modes: Reset settings first**
 
-1. Flash `settings_reset-nice_nano_v2-zmk.uf2` to **both** keyboards
-2. Flash `charybdis_left-nice_nano_v2-zmk.uf2` to the left keyboard
-3. Flash `charybdis_right_standalone-nice_nano_v2-zmk.uf2` to the right keyboard
+1. Flash `settings_reset-nice_nano-zmk.uf2` to **both** keyboards
+2. Flash `charybdis_left-nice_nano-zmk.uf2` to the left keyboard
+3. Flash `charybdis_right_standalone-nice_nano-zmk.uf2` to the right keyboard
 4. The keyboards will automatically pair with each other
 
 ### Dongle Mode
@@ -511,31 +511,31 @@ Built firmware files are automatically copied to `manual_build/artifacts/output/
 1. **Flash settings reset and dongle firmware** (choose your dongle type):
 
    a) **Prospector Dongle (Seeeduino XIAO BLE)**:
-      - Flash `settings_reset-nice_nano_v2-zmk.uf2` to **both** keyboards
-      - Flash `settings_reset-seeeduino_xiao_ble-zmk.uf2` to the **dongle**
-      - Flash `dongle_prospector prospector_adapter-seeeduino_xiao_ble-zmk.uf2` to the dongle
+      - Flash `settings_reset-nice_nano-zmk.uf2` to **both** keyboards
+      - Flash `settings_reset-xiao_ble-zmk.uf2` to the **dongle**
+      - Flash `dongle_prospector prospector_adapter-xiao_ble-zmk.uf2` to the dongle
 
    b) **YADS Prospector Dongle (Seeeduino XIAO BLE)**:
-      - Flash `settings_reset-nice_nano_v2-zmk.uf2` to **both** keyboards
-      - Flash `settings_reset-seeeduino_xiao_ble-zmk.uf2` to the **dongle**
-      - Flash `dongle_bwshockley_prospector dongle_screen-seeeduino_xiao_ble-zmk.uf2` to the dongle
+      - Flash `settings_reset-nice_nano-zmk.uf2` to **both** keyboards
+      - Flash `settings_reset-xiao_ble-zmk.uf2` to the **dongle**
+      - Flash `dongle_bwshockley_prospector dongle_screen-xiao_ble-zmk.uf2` to the dongle
 
    c) **Nice!Nano Dongle (Nice!Nano v2)**
-      - Flash `settings_reset-nice_nano_v2-zmk.uf2` to **all three** devices (left, right, dongle)
+      - Flash `settings_reset-nice_nano-zmk.uf2` to **all three** devices (left, right, dongle)
       - Flash the appropriate dongle firmware to the dongle:
-        - **128x32 OLED**: `dongle_nice_32 dongle_display-nice_nano_v2-zmk.uf2`
-        - **128x64 OLED**: `dongle_nice_64 dongle_display-nice_nano_v2-zmk.uf2`
+        - **128x32 OLED**: `dongle_nice_32 dongle_display-nice_nano-zmk.uf2`
+        - **128x64 OLED**: `dongle_nice_64 dongle_display-nice_nano-zmk.uf2`
       - Connect OLED display to dongle via I2C (SDA→Pin 2, SCL→Pin 3)
 
-2. Flash `charybdis_left-nice_nano_v2-zmk.uf2` to the left keyboard
-3. Flash `dongle_charybdis_right-nice_nano_v2-zmk.uf2` to the right keyboard
+2. Flash `charybdis_left-nice_nano-zmk.uf2` to the left keyboard
+3. Flash `dongle_charybdis_right-nice_nano-zmk.uf2` to the right keyboard
 4. **Important**: Pair the left keyboard to the dongle first, then pair the right keyboard
 
 ### Tester Pro Micro (GPIO Testing)
 
 **For testing a Pro Micro-compatible board**
 
-1. Flash `tester_pro_micro-nice_nano_v2-zmk.uf2` (or your board variant) to the controller
+1. Flash `tester_pro_micro-nice_nano-zmk.uf2` (or your board variant) to the controller
 2. Connect the board via USB to your computer
 3. Open a text editor or terminal
 4. Connect a switch or wire from any GPIO pin to GND and trigger it
